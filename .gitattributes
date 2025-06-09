@@ -1,0 +1,37 @@
+# Detect Python files
+*.py linguist-language=Python
+
+# Documentation
+*.md linguist-documentation
+*.rst linguist-documentation
+docs/* linguist-documentation
+
+# Examples - these are still Python code, not documentation
+examples/*.py linguist-documentation=false
+
+# Exclude vendored code from language statistics
+.github/* linguist-vendored
+
+# Treat SQL files as SQL
+*.sql linguist-language=SQL
+
+# Treat these files as text with LF line endings
+*.py text eol=lf
+*.md text eol=lf
+*.rst text eol=lf
+*.txt text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.json text eol=lf
+*.toml text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.sql text eol=lf
+
+# Binary files (don't modify line endings)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.db binary

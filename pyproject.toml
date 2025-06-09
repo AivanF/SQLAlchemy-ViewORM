@@ -1,0 +1,66 @@
+[project]
+name = "SQLAlchemy-ViewORM"
+version = "0.1.0"
+description = "A flexible ORM extension for defining and managing views (including materialized ones) in SQLAlchemy"
+readme = "README.md"
+authors = [{ name = "AivanF.", email = "fouren.aivan@gmail.com" }]
+license = { file = "LICENSE" }
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Database",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Typing :: Typed",
+]
+keywords = ["sqlalchemy", "database", "views", "materialized views"]
+dependencies = ["sqlalchemy>=2.0.0"]
+requires-python = ">=3.9"
+
+[project.urls]
+Documentation = "https://aivanf.github.io/SQLAlchemy-ViewORM"
+Repository = "https://github.com/AivanF/SQLAlchemy-ViewORM"
+"Bug Tracker" = "https://github.com/AivanF/SQLAlchemy-ViewORM/issues"
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.0.0",
+    "mypy>=1.0.0",
+    "flake8>=6.0.0",
+    "pre-commit>=3.0.0",
+    "sphinx>=7.0.0",
+    "sphinx_rtd_theme>=1.3.0",
+]
+
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.black]
+line-length = 88
+target-version = ["py39", "py311", "py311", "py312"]
+include = '\.pyi?$'
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+pythonpath = ["."]
