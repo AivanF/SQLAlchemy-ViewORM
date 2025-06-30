@@ -220,11 +220,13 @@ More Examples
 -------------
 
 1. `Flask server <https://github.com/AivanF/SQLAlchemy-ViewORM/blob/main/examples/flask_example.py>`_
-  - single-file server
+  - Products with aggregated stats by category
+  - Single-file server
   - Materialized View integrated into API
-  - refresh by request
+  - Refresh by request
 
 2. `FastAPI server <https://github.com/AivanF/SQLAlchemy-ViewORM/tree/main/examples/FastAPI-example>`_
-  - multiple-file server draft
+  - Game matches with a leaderboard view
+  - Multiple-file server draft
   - Materialized View + async DB proper setup
-  - refresh by a background job
+  - Refresh by a periodic background job

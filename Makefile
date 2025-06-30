@@ -78,8 +78,7 @@ dev: clean ## install development dependencies
 	pre-commit install
 
 dist: clean ## builds source and wheel package
-	python setup.py sdist
-	python setup.py bdist_wheel
+	python -m build
 	ls -l dist
 
 release: dist ## package and upload a release

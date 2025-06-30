@@ -40,7 +40,7 @@ For more examples and usage details, see the documentation.
 
 from sqlalchemy_view_orm.base import ViewBase, ViewConfig, ViewMethod
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __author__ = "AivanF."
 
 __all__ = ["ViewBase", "ViewConfig", "ViewMethod"]

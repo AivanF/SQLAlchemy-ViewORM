@@ -148,11 +148,6 @@ Database views offer numerous advantages:
 
 This library makes it easy to leverage these benefits within your SQLAlchemy applications.
 
-## Documentation
-
-For complete documentation, examples, and API reference, visit:
-[https://github.com/AivanF/SQLAlchemy-ViewORM/docs](https://github.com/AivanF/SQLAlchemy-ViewORM/docs)
-
 ## Project Status
 
 This project is in passive development. We welcome contributions, bug reports, and feature requests, especially with suggested solutions. See [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
@@ -173,7 +168,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Documentation
 
-Full documentation is available in the [docs](https://github.com/AivanF/SQLAlchemy-ViewORM/tree/main/docs) directory.
+Full documentation is available on the [ReadTheDocs](https://sqlalchemy-vieworm.readthedocs.io/en/latest/), and its sources located in the [docs](https://github.com/AivanF/SQLAlchemy-ViewORM/tree/main/docs) directory.
 
 ## Examples
 

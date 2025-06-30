@@ -1,6 +1,6 @@
 [project]
 name = "SQLAlchemy-ViewORM"
-version = "0.1.0"
+version = "0.1.1"
 description = "A flexible ORM extension for defining and managing views (including materialized ones) in SQLAlchemy"
 readme = "README.md"
 authors = [{ name = "AivanF.", email = "fouren.aivan@gmail.com" }]
@@ -23,7 +23,7 @@ dependencies = ["sqlalchemy>=2.0.0"]
 requires-python = ">=3.9"
 
 [project.urls]
-Documentation = "https://aivanf.github.io/SQLAlchemy-ViewORM"
+Documentation = "https://sqlalchemy-vieworm.readthedocs.io/"
 Repository = "https://github.com/AivanF/SQLAlchemy-ViewORM"
 "Bug Tracker" = "https://github.com/AivanF/SQLAlchemy-ViewORM/issues"
 
@@ -38,20 +38,42 @@ dev = [
     "pre-commit>=3.0.0",
     "sphinx>=7.0.0",
     "sphinx_rtd_theme>=1.3.0",
+    "build>=0.10.0",
+    "twine>=4.0.0",
 ]
+docs = ["sphinx>=7.0.0", "sphinx_rtd_theme>=1.3.0"]
+examples = ["fastapi>=0.95.0", "uvicorn>=0.22.0"]
 
 [build-system]
-requires = ["setuptools>=42", "wheel"]
+requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["sqlalchemy_view_orm*"]
+
+[tool.setuptools.package-data]
+sqlalchemy_view_orm = ["py.typed"]
 
 [tool.black]
 line-length = 88
-target-version = ["py39", "py311", "py311", "py312"]
+target-version = ["py39", "py310", "py311", "py312"]
 include = '\.pyi?$'
+extend-exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.venv
+  | build
+  | dist
+)/
+'''
 
 [tool.isort]
 profile = "black"
 multi_line_output = 3
+line_length = 88
+known_first_party = ["sqlalchemy_view_orm"]
 
 [tool.mypy]
 python_version = "3.9"
@@ -59,8 +81,24 @@ warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
 disallow_incomplete_defs = true
+show_error_codes = true
+strict = true
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
 pythonpath = ["."]
+addopts = "--strict-markers"
+markers = ["slow: marks tests as slow (deselect with '-m \"not slow\"')"]
+
+[tool.coverage.run]
+source = ["sqlalchemy_view_orm"]
+omit = ["*/tests/*", "*/test_*"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "raise AssertionError",
+    "raise NotImplementedError",
+]
